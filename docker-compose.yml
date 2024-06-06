@@ -7,6 +7,6 @@ services:
             context: .
             dockerfile: ./Dockerfile
         ports:
-            - "3001:80"
+            - "8085:80"
         volumes:
             - .:/usr/src/app
