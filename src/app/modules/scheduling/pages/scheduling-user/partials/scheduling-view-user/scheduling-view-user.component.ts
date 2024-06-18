@@ -54,11 +54,11 @@ export class SchedulingViewUserComponent implements AfterContentInit, OnDestroy 
         if (id) {
             this.professionalService.get(id).pipe(takeUntil(this._destroy$)).subscribe((professional) => {
                 this.data = {
-                    id: professional[0].id as number,
-                    name: professional[0].name,
-                    occupation: professional[0].occupation_area,
-                    crmCrp: professional[0].professional_record as string,
-                    platforms: professional[0].platforms
+                    id: professional.data[0].id as number,
+                    name: professional.data[0].name,
+                    occupation: professional.data[0].occupation_area,
+                    crmCrp: professional.data[0].professional_record as string,
+                    platforms: professional.data[0].platforms
                 };
                 this.storageService.saveProfessional(this.data.name);
             });

@@ -66,7 +66,7 @@ export class SchedulingUserComponent implements OnDestroy, AfterViewInit {
 
     public loadingProfessionals(): void {
         this.professionalService.getAll().pipe(takeUntil(this._destroy$)).subscribe((response) => {
-            this.data = response;
+            this.data = response.data;
         });
     }
 

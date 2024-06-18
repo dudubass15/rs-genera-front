@@ -77,7 +77,7 @@ export class SchedulingProfessionalComponent implements OnDestroy {
 
     public loadingPersons(): void {
         this.personService.getAll().pipe(takeUntil(this._destroy$)).subscribe((response) => {
-            this.data = response;
+            this.data = response.data;
         });
     }
 
