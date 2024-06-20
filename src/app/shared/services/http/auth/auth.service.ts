@@ -4,7 +4,6 @@ import { map, Observable } from 'rxjs';
 import { ResponseInterface } from 'src/app/core/interface/response.interface';
 import { LoginRequestInterface } from 'src/app/shared/interfaces/requests/login-request.interface';
 import { LoginResponseInterface } from 'src/app/shared/interfaces/response/login-response.interface';
-import { UserInterface } from 'src/app/shared/interfaces/user.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -14,12 +13,12 @@ export class AuthService {
 
     constructor(private http: HttpClient) {}
 
-    public login(params: LoginRequestInterface): Observable<LoginResponseInterface> {
-        return this.http.post<LoginResponseInterface>(`${environment.baseUrl}/login`, params)
+    public login(params: LoginRequestInterface): Observable<ResponseInterface<LoginResponseInterface>> {
+        return this.http.post<ResponseInterface<LoginResponseInterface>>(`${environment.baseUrl}/login`, params)
             .pipe(
-                map((response: LoginResponseInterface) => {
+                map((response: ResponseInterface<LoginResponseInterface>) => {
                     if (response) {
-                        this.saveDataInLocalStorage(response);
+                        this.saveDataInLocalStorage(response.data);
                     }
                     return response;
                 })

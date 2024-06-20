@@ -88,9 +88,9 @@ export class SchedulingViewProfessionalComponent implements AfterContentInit, On
         if (id) {
             this.personService.get(id).pipe(takeUntil(this._destroy$)).subscribe((person) => {
                 this.data = {
-                    id: person[0].id as number,
-                    name: person[0].name,
-                    history: person[0].history as string
+                    id: person.data[0].id as number,
+                    name: person.data[0].name,
+                    history: person.data[0].history as string
                 };
                 this.storageService.saveUser(this.data.name);
             });

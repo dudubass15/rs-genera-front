@@ -12,23 +12,23 @@ export class ProfissionalService {
 
     constructor(private http: HttpClient) {}
 
-    public getAll(): Observable<ProfissionalInterface[]> {
-        return this.http.get<ProfissionalInterface[]>(`${environment.baseUrl}/professionals`);
+    public getAll(): Observable<ResponseInterface<ProfissionalInterface[]>> {
+        return this.http.get<ResponseInterface<ProfissionalInterface[]>>(`${environment.baseUrl}/professionals`);
     }
 
-    public get(id: number): Observable<ProfissionalInterface[]> {
-        return this.http.get<ProfissionalInterface[]>(`${environment.baseUrl}/professionals/${id}`);
+    public get(id: number): Observable<ResponseInterface<ProfissionalInterface[]>> {
+        return this.http.get<ResponseInterface<ProfissionalInterface[]>>(`${environment.baseUrl}/professionals/${id}`);
     }
 
-    public add(data: ProfissionalInterface): Observable<ProfissionalInterface[]> {
-        return this.http.post<ProfissionalInterface[]>(`${environment.baseUrl}/professionals`, data);
+    public add(data: ProfissionalInterface): Observable<ResponseInterface<ProfissionalInterface[]>> {
+        return this.http.post<ResponseInterface<ProfissionalInterface[]>>(`${environment.baseUrl}/professionals`, data);
     }
 
-    public put(id: number, data: ProfissionalInterface): Observable<ProfissionalInterface> {
-        return this.http.put<ProfissionalInterface>(`${environment.baseUrl}/professionals/${id}`, { data });
+    public put(id: number, data: ProfissionalInterface): Observable<ResponseInterface<ProfissionalInterface>> {
+        return this.http.put<ResponseInterface<ProfissionalInterface>>(`${environment.baseUrl}/professionals/${id}`, { data });
     }
 
-    public delete(id: number): Observable<ProfissionalInterface> {
-        return this.http.delete<ProfissionalInterface>(`${environment.baseUrl}/professionals/${id}`);
+    public delete(id: number): Observable<ResponseInterface<ProfissionalInterface>> {
+        return this.http.delete<ResponseInterface<ProfissionalInterface>>(`${environment.baseUrl}/professionals/${id}`);
     }
 }
